@@ -1,0 +1,104 @@
+#btn{
+    text-align: center;
+}
+
+#sb{
+    background-color: aqua;
+    color: green;
+    cursor: pointer;
+    display: block;
+    width: 220px;
+    flex-grow: 1;
+}
+
+.a{
+    background-color: red;
+    color: rgb(241, 161, 13);
+    cursor: pointer;
+}
+
+body{
+    background-color: #e3f2fd;
+}
+
+div{
+    margin: 10px;
+    color: #1565c0;
+}
+
+#sb:hover, .a:hover {
+    transform: scale(1.05);
+    background-color: #00bcd4;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+@keyframes fadeIn{
+    from{opacity: 0;}
+    to{opacity: 1;}
+}
+
+tr{
+    animation: fadeIn 0.5s;
+}
+
+input:focus, select:focus {
+    outline: none;
+    box-shadow:0 0 5px #1565c0;
+    transition: box-shadow 0.5s;
+}
+
+h1 {
+    animation: bounce 1s;
+}
+
+@keyframes bounce {
+    0%   { transform: translateY(0); }
+    50%  { transform: translateY(-20px); }
+    100% { transform: translateY(0); }
+}
+
+select:focus, select:hover {
+    transform: scale(1.05);
+    border-color: #1565c0;
+    box-shadow: 0 0 8px #90caf9;
+    transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; height: 0; }
+}
+
+tr.removing {
+    animation: fadeOut 0.5s forwards;
+}
+
+#sb:active, .a:active {
+    transform: scale(0.95);
+    box-shadow: 0 0 10px #00bcd4;
+}
+
+form {
+    animation: fadeIn 1s;
+}
+
+tr.new-row {
+    background-color: #b3e5fc;
+    animation: highlight 1s;
+}
+
+@keyframes highlight {
+    0% { background-color: #fffde7; }
+    100% { background-color: #b3e5fc; }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-5px); }
+    40%, 80% { transform: translateX(5px); }
+}
+
+input.error {
+    animation: shake 0.3s;
+    border-color: red;
+}

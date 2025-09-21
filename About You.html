@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Persnal Information</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <center>
+        <div>
+            <h1>STUDENT FORM</h1>
+        </div>
+
+        <div>
+            <form>
+                <table border="1">
+                    <tr>
+                        <td>
+                            Name
+                        </td>
+                        <td>
+                            <input type="text" id="name">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Age
+                        </td>
+                        <td>
+                            <input type="number" id="Age">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Gender
+                        </td>
+                        <td>
+                            <input type="radio" name="Gender" id="m">Male
+                            <input type="radio" name="Gender" id="f">Female
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Course
+                        </td>
+                        <td>
+                            <select id="s">
+                                <option>JavaScript</option>
+                                <option>HTML</option>
+                                <option>CSS</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            E-mail
+                        </td>
+                        <td>
+                            <input type="text" id="E-mail" placeholder="Enter Your E-mail">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" id="btn">
+                            <button type="button" onclick="save()" id="sb">Save</button>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+
+        <div>
+            <table border="5">
+                <tbody id="box">
+                    <tr>
+                        <td>NAME</td>
+                        <td>AGE</td>
+                        <td>COURSE</td>
+                        <td>GENDER</td>
+                        <td>EMAIL</td>
+                        <td>ACTION</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </center>
+    <script>
+        function save() {
+            var n = document.getElementById("name").value
+            var age = document.getElementById("Age").value
+            var gm = document.getElementById("m").checked
+            var gf = document.getElementById("f").checked
+            var se = document.getElementById("s").value
+            var e = document.getElementById("E-mail").value
+            var a = document.getElementById("box")
+            var tr = document.createElement("tr")
+            if (gm) {
+                tr.innerHTML = "<td>" + n + "</td><td>" + age + "</td><td>" + se + "</td><td>Male</td><td>" + e + "</td><td><button onclick='Delete(event)' class='a'>Delete</button></td>"
+            }
+            else if (gf) {
+                tr.innerHTML = "<td>" + n + "</td><td>" + age + "</td><td>" + se + "</td><td>Female</td><td>" + e + "</td><td><button onclick='Delete(event)' class='a'>Delete</button></td>"
+
+            }
+            else {
+                tr.innerHTML = "<td>" + n + "</td><td>" + age + "</td><td>" + se + "</td><td>Not Selected</td><td>" + e + "</td><td><button onclick='Delete(event)' class='a'>Delete</button></td>"
+            }
+            tr.classList.add('new-row');
+            a.insertAdjacentElement("beforeend", tr)
+
+        }
+        function Delete(event) {
+            
+            var row = event.target.parentElement.parentElement
+            row.classList.add('removing')
+            setTimeout(function() {row.remove()}, 500);
+        }
+        
+    </script>
+</body>
+
+</html>
